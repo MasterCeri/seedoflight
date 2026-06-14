@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEEDOFLIGHT.com | Бесплатное E.G.O. от Кармен (ОФИЦИАЛЬНО)</title>
+    <style>
+        /* === СБРОС И БАЗА === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: "Comic Sans MS", "Courier New", cursive, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* === ФОН С "КРУТЫМИ" ГИФКАМИ === */
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #000000 0px,
+                #0d0d0d 3px,
+                #001a00 6px,
+                #000000 9px
+            );
+            z-index: -2;
+            animation: bgScroll 20s linear infinite;
+        }
+        
+        @keyframes bgScroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        /* === БЕГУЩАЯ СТРОКА (ОГОНЬ!) === */
+        .marquee-container {
+            width: 100%;
+            background: #ff00ff;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 8px 0;
+            overflow: hidden;
+            border-top: 3px solid #ffff00;
+            border-bottom: 3px solid #ffff00;
+            text-shadow: 2px 2px 0 #ffff00;
+            letter-spacing: 1px;
+        }
+        
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 8s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* === ОСНОВНОЙ КОНТЕЙНЕР === */
+        .main-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === ЗАГОЛОВКИ (КИСЛОТА!) === */
+        .title-glow {
+            font-size: 2.8em;
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 
+                0 0 10px #00ff00,
+                0 0 30px #00ff00,
+                3px 3px 0 #ff00ff;
+            animation: titlePulse 0.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titlePulse {
+            0% { transform: scale(1); text-shadow: 0 0 10px #00ff00, 0 0 30px #00ff00, 3px 3px 0 #ff00ff; }
+            100% { transform: scale(1.03); text-shadow: 0 0 20px #ff00ff, 0 0 50px #ff00ff, -3px -3px 0 #00ff00; }
+        }
+
+        .subtitle-scam {
+            text-align: center;
+            font-size: 1.2em;
+            color: #ffff00;
+            background: #330033;
+            padding: 10px;
+            border: 2px dashed #ff00ff;
+            margin: 15px 0;
+            transform: rotate(-1deg);
+        }
+
+        /* === КАРТОЧКИ "ОТЗЫВОВ" === */
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+            justify-content: center;
+        }
+        
+        .testimonial-card {
+            background: #1a1a1a;
+            border: 2px solid #ff00ff;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 0 15px #ff00ff88;
+            transform: rotate(1deg);
+        }
+        
+        .testimonial-card:nth-child(2) { transform: rotate(-1deg); }
+        .testimonial-card:nth-child(3) { transform: rotate(2deg); }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: #333;
+            border: 2px solid #00ff00;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            line-height: 60px;
+            font-size: 2em;
+        }
+        
+        .testimonial-name {
+            color: #00ff00;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-text {
+            color: #ccc;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        /* === БЛОК ВВОДА ПРОМОКОДА === */
+        .promo-block {
+            background: #000;
+            border: 5px solid #ff00ff;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 
+                inset 0 0 30px #ff00ff88,
+                0 0 40px #ff00ff;
+            animation: blockGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes blockGlow {
+            0% { box-shadow: inset 0 0 30px #ff00ff88, 0 0 40px #ff00ff; }
+            100% { box-shadow: inset 0 0 50px #ffff0088, 0 0 60px #ffff00; }
+        }
+
+        .promo-input {
+            width: 80%;
+            padding: 15px;
+            font-size: 1.5em;
+            text-align: center;
+            background: #111;
+            border: 3px solid #00ff00;
+            color: #00ff00;
+            font-family: "Courier New", monospace;
+            margin: 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .promo-input:focus {
+            outline: none;
+            border-color: #ffff00;
+            box-shadow: 0 0 20px #ffff00;
+        }
+
+        .btn-ego {
+            background: #ff00ff;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.8em;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "Impact", sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: btnPulse 0.8s ease-in-out infinite;
+            transition: 0.2s;
+        }
+        
+        .btn-ego:hover {
+            background: #ffff00;
+            color: #ff00ff;
+            transform: scale(1.1);
+            box-shadow: 0 0 40px #ffff00;
+        }
+        
+        @keyframes btnPulse {
+            0%, 100% { box-shadow: 0 0 20px #ff00ff; }
+            50% { box-shadow: 0 0 40px #ffff00, 0 0 60px #ff00ff; }
+        }
+
+        /* === СКРЫТЫЙ БЛОК РЕЗУЛЬТАТА === */
+        .result-block {
+            display: none;
+            background: #0a000a;
+            border: 5px solid #660066;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .distortion-title {
+            font-size: 2.5em;
+            color: #ff00ff;
+            text-shadow: 0 0 30px #ff00ff;
+            animation: glitchText 0.3s infinite;
+        }
+        
+        @keyframes glitchText {
+            0% { transform: translate(2px, -2px); }
+            25% { transform: translate(-2px, 2px); }
+            50% { transform: translate(-3px, -1px); }
+            75% { transform: translate(1px, 3px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .status-box {
+            background: #1a001a;
+            border: 2px solid #ff00ff;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 2;
+        }
+        
+        .status-fail {
+            color: #ff4444;
+            font-weight: bold;
+        }
+        
+        .status-profit {
+            color: #ff00ff;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* === МАЛЕНЬКАЯ КНОПКА-ПРИКОЛ === */
+        .btn-undo {
+            background: #333;
+            color: #888;
+            border: 1px solid #555;
+            padding: 5px 15px;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+        
+        .btn-undo:hover {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        /* === ВСПЛЫВАЮЩИЕ ОКНА (РЕАЛЬНЫЕ!!) === */
+        .fake-alert-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .fake-alert-box {
+            background: #ff00ff;
+            color: #000;
+            padding: 30px;
+            border: 5px solid #000;
+            max-width: 400px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 0 50px #ff00ff;
+            position: relative;
+            transition: 0.08s ease-out;
+        }
+        
+        .fake-alert-box button {
+            background: #000;
+            color: #ff00ff;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1em;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.05s ease-out;
+        }
+
+        /* === МОДАЛЬНОЕ ОКНО ВЫБОРА E.G.O. === */
+        .ego-select-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ego-select-box {
+            background: #0a000a;
+            border: 5px solid #ff00ff;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            color: #fff;
+            box-shadow: 0 0 60px #ff00ff88;
+            font-family: "Courier New", monospace;
+        }
+
+        .ego-select-box h2 {
+            text-align: center;
+            color: #ffff00;
+            text-shadow: 0 0 15px #ffff00;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .ego-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #111;
+            border: 2px solid #333;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1.1em;
+        }
+
+        .ego-option:hover {
+            border-color: #ff00ff;
+            background: #1a001a;
+        }
+
+        .ego-option input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            accent-color: #ff00ff;
+            cursor: pointer;
+        }
+
+        .ego-option.locked input[type="checkbox"] {
+            accent-color: #ff0000;
+        }
+
+        .ego-option.strikethrough {
+            text-decoration: line-through;
+            color: #666;
+            pointer-events: none;
+        }
+
+        .ego-option.strikethrough input {
+            pointer-events: none;
+        }
+
+        .ego-distortion-highlight {
+            background: #1a001a !important;
+            border-color: #ff00ff !important;
+            box-shadow: 0 0 15px #ff00ff55;
+        }
+
+        .btn-confirm-ego {
+            display: block;
+            width: 100%;
+            background: #ff00ff;
+            color: #000;
+            border: none;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: "Impact", sans-serif;
+            letter-spacing: 2px;
+            transition: 0.2s;
+        }
+
+        .btn-confirm-ego:hover {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        .ego-warning {
+            text-align: center;
+            color: #ff4444;
+            font-size: 0.85em;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        /* === АДАПТИВКА === */
+        @media (max-width: 600px) {
+            .title-glow { font-size: 1.8em; }
+            .btn-ego { font-size: 1.3em; padding: 10px 25px; }
+            .testimonial-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ФОНЧИК -->
+    <div class="bg-pattern"></div>
+
+    <!-- БЕГУЩАЯ СТРОКА (ШОК-КОНТЕНТ) -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            🚨 АЙН В ШОКЕ!!! 🚨 | КОГТИ НЕНАВИДЯТ ЭТОТ МЕТОД | КАРМЕН РАЗДАЁТ E.G.O. БЕСПЛАТНО | ЖМИ ПРОМОКОД!!! 🚨
+        </div>
+    </div>
+
+    <!-- ГЛАВНЫЙ КОНТЕЙНЕР -->
+    <div class="main-wrapper">
+
+        <!-- ЗАГОЛОВОК МЕЧТЫ -->
+        <h1 class="title-glow">💎 SEEDOFLIGHT.com 💎</h1>
+        <div class="subtitle-scam">
+            ⚡ ОФИЦИАЛЬНЫЙ ПАРТНЁР LOBOTOMY CORPORATION ⚡<br>
+            <small>(нет, но Кармен сказала можно)</small>
+        </div>
+
+        <!-- ФЕЙКОВЫЕ ОТЗЫВЫ -->
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">🐺</div>
+                <div class="testimonial-name">Xiao_Lover_69</div>
+                <div class="testimonial-text">
+                    "Ввёл промокод <b>Cogito</b> и через 10 минут ко мне пришло Nine Sons of the Dragon!!! Это не развод, всё честно! Спасибо!"
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">😭</div>
+                <div class="testimonial-name">Philip_Official</div>
+                <div class="testimonial-text">
+                    "Метод реально рабочий. Я теперь сильный как никогда. Правда, друзья от меня шарахаются, но это мелочи."
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">💰</div>
+                <div class="testimonial-name">RatKing_228</div>
+                <div class="testimonial-text">
+                    "Я простой Крыса из Backstreets, а теперь у меня своё E.G.O.! Кармен скинула 5000 Ahn просто так!"
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК ВВОДА ПРОМОКОДА -->
+        <div class="promo-block" id="promoBlock">
+            <h2 style="color: #ffff00; margin-bottom: 15px;">
+                🎁 ВВЕДИ ПРОМОКОД НА БЕСПЛАТНОЕ E.G.O. 🎁
+            </h2>
+            <input 
+                type="text" 
+                class="promo-input" 
+                id="promoInput" 
+                placeholder="ВВЕДИ КОД"
+                autocomplete="off"
+            >
+            <br>
+            <button class="btn-ego" id="btnGetEgo">
+                🔥 ПОЛУЧИТЬ ЭГО! 🔥
+            </button>
+            <p style="color: #888; font-size: 0.8em; margin-top: 10px;">
+                * промокод активируется мгновенно, E.G.O. придёт в течение 5 минут
+            </p>
+        </div>
+
+        <!-- РЕЗУЛЬТАТ (ИЗНАЧАЛЬНО СКРЫТ) -->
+        <div class="result-block" id="resultBlock">
+            <h2 class="distortion-title">🔥 ПОЗДРАВЛЯЕМ! 🔥</h2>
+            <div class="status-box">
+                <p>✅ <b>Промокод активирован:</b> <span style="color: #00ff00;">Cogito</span></p>
+                <p>✅ <b>Свет принят:</b> <span style="color: #ffff00;">ДА</span></p>
+                <p>❌ <b>Статус:</b> <span class="status-fail">ДИСТОРШЕН</span></p>
+                <p>📍 <b>Местоположение:</b> Квартал 23, Руины, Подвал</p>
+                <p>💰 <b>Баланс Ahn:</b> <span class="status-profit">-5,000 Ahn</span></p>
+                <p style="font-size: 0.8em; color: #888;">(средства списаны за потенциальный вред городу)</p>
+            </div>
+            
+            <div style="background: #1a001a; padding: 15px; border: 1px solid #ff00ff; margin: 15px 0;">
+                <p style="color: #ff00ff; font-size: 1.1em;">
+                    <b>🎉 ЧТО ДЕЛАТЬ ДАЛЬШЕ?</b>
+                </p>
+                <p style="color: #ccc;">✅ Ждать</p>
+                <p style="color: #ccc;">✅ Плакать</p>
+                <p style="color: #ccc;">✅ Пригласить друга (скидка 50%)</p>
+            </div>
+
+            <button class="btn-ego" onclick="location.reload()" style="font-size: 1.2em; margin-top: 15px;">
+                📢 ПРИГЛАСИТЬ ДРУГА ИСКАЗИТЬСЯ
+            </button>
+            <br>
+            <button class="btn-undo" id="btnUndo">
+                ↩️ Отменить Дисторшен (вернуть E.G.O.)
+            </button>
+        </div>
+
+    </div>
+
+    <!-- ФЕЙКОВЫЕ ВСПЛЫВАЮЩИЕ ОКНА -->
+    <div class="fake-alert-overlay" id="fakeAlertOverlay">
+        <div class="fake-alert-box" id="fakeAlertBox">
+            <p id="fakeAlertText">ОШИБКА: Сингулярность недоступна!</p>
+            <button id="fakeAlertBtn">OK (обречённо)</button>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ВЫБОРА E.G.O. -->
+    <div class="ego-select-overlay" id="egoSelectOverlay">
+        <div class="ego-select-box">
+            <h2>🎁 ВЫБЕРИТЕ ВАШЕ E.G.O. 🎁</h2>
+            <p style="text-align:center; color:#888; margin-bottom:15px;">(выберите один или несколько вариантов)</p>
+
+            <label class="ego-option strikethrough">
+                <input type="checkbox" disabled> 🔫 ОРУЖИЕ (ЗАКОНЧИЛИСЬ)
+            </label>
+
+            <label class="ego-option strikethrough">
+                <input type="checkbox" disabled> 🛡️ КОСТЮМ (ПОРВАЛИ)
+            </label>
+
+            <label class="ego-option strikethrough">
+                <input type="checkbox" disabled> 🎁 ДАР (УКРАЛИ)
+            </label>
+
+            <label class="ego-option ego-distortion-highlight" id="distortionOption">
+                <input type="checkbox" id="distortionCheckbox" checked> 💀 ДИСТОРШЕН (ВЫБРАНО)
+            </label>
+
+            <button class="btn-confirm-ego" id="btnConfirmEgo">
+                ✅ ПОДТВЕРДИТЬ ВЫБОР
+            </button>
+            <p class="ego-warning" id="egoWarning"></p>
+            <p style="text-align:center; margin-top:15px;">
+                <a href="#" id="btnCloseEgo" style="color:#666; font-size:0.8em; text-decoration:none;">↩️ Закрыть (не рекомендуется)</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // === ЭЛЕМЕНТЫ ===
+        const promoInput = document.getElementById('promoInput');
+        const btnGetEgo = document.getElementById('btnGetEgo');
+        const resultBlock = document.getElementById('resultBlock');
+        const promoBlock = document.getElementById('promoBlock');
+        const btnUndo = document.getElementById('btnUndo');
+        const fakeAlertOverlay = document.getElementById('fakeAlertOverlay');
+        const fakeAlertText = document.getElementById('fakeAlertText');
+        const fakeAlertBtn = document.getElementById('fakeAlertBtn');
+        const fakeAlertBox = document.getElementById('fakeAlertBox');
+
+        // Элементы модалки выбора E.G.O.
+        const egoSelectOverlay = document.getElementById('egoSelectOverlay');
+        const distortionCheckbox = document.getElementById('distortionCheckbox');
+        const btnConfirmEgo = document.getElementById('btnConfirmEgo');
+        const egoWarning = document.getElementById('egoWarning');
+        const btnCloseEgo = document.getElementById('btnCloseEgo');
+        const distortionOption = document.getElementById('distortionOption');
+
+        // === СЧЁТЧИК ПОПЫТОК "ОТМЕНИТЬ" ===
+        let undoClicks = 0;
+        const undoMessages = [
+            "ДИСТОРШЕН НЕ ОТМЕНЯЕТСЯ.",
+            "АНСАМБЛЬ РЕВЕРБАЦИИ БЛАГОДАРИТ ЗА ПОЖЕРТВОВАНИЕ.",
+            "КАРМЕН СКАЗАЛА 'НЕТ'.",
+            "ПОЗДНО."
+        ];
+
+        // === ФЛАГ ДЛЯ ОТКЛЮЧЕНИЯ УБЕГАНИЯ КНОПКИ ===
+        let alertButtonEscapes = true;
+
+        // === ФУНКЦИЯ УБЕГАНИЯ КНОПКИ ===
+        function makeButtonEscape(button, container) {
+            button.addEventListener('mouseover', function(e) {
+                if (!alertButtonEscapes) return;
+
+                const containerRect = container.getBoundingClientRect();
+                const btnRect = button.getBoundingClientRect();
+
+                // Максимальные границы внутри контейнера
+                const maxX = containerRect.width - btnRect.width - 20;
+                const maxY = containerRect.height - btnRect.height - 20;
+
+                // Случайное смещение (но не вылетаем за пределы контейнера)
+                let newLeft = Math.random() * maxX;
+                let newTop = Math.random() * maxY;
+
+                // Гарантируем что кнопка не вылезает
+                newLeft = Math.max(10, Math.min(newLeft, maxX));
+                newTop = Math.max(50, Math.min(newTop, maxY)); // 50 — отступ под текст
+
+                button.style.position = 'relative';
+                button.style.left = newLeft + 'px';
+                button.style.top = newTop + 'px';
+            });
+
+            // При клике — временно останавливаем убегание
+            button.addEventListener('click', function() {
+                alertButtonEscapes = false;
+                button.style.position = 'static';
+            });
+        }
+
+        // Применяем убегание к кнопке алерта
+        makeButtonEscape(fakeAlertBtn, fakeAlertBox);
+
+        // === ФУНКЦИЯ ПОКАЗАТЬ ФЕЙКОВОЕ ОКНО ===
+        function showFakeAlert(message, callback) {
+            alertButtonEscapes = true;
+            fakeAlertBtn.style.position = 'static'; // Сброс позиции
+            fakeAlertBtn.style.left = '0';
+            fakeAlertBtn.style.top = '0';
+            
+            fakeAlertText.textContent = message;
+            fakeAlertOverlay.style.display = 'flex';
+            
+            fakeAlertBtn.onclick = function() {
+                fakeAlertOverlay.style.display = 'none';
+                if (callback) callback();
+            };
+        }
+
+        // === ФУНКЦИЯ ЗАПРОСА УВЕДОМЛЕНИЙ БРАУЗЕРА ===
+        function requestNotification(title, body) {
+            if (!("Notification" in window)) return;
+
+            if (Notification.permission === "granted") {
+                new Notification(title, { body: body, icon: "💀" });
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        new Notification(title, { body: body, icon: "💀" });
+                    }
+                });
+            }
+        }
+
+        // === ПОКАЗ МОДАЛЬНОГО ОКНА ВЫБОРА E.G.O. ===
+        function showEgoSelectModal() {
+            distortionCheckbox.checked = true;
+            egoWarning.textContent = '';
+            egoSelectOverlay.style.display = 'flex';
+
+            // Попытка запросить уведомление
+            requestNotification(
+                "⚠️ SEED OF LIGHT — ТРЕБУЕТСЯ ПОДТВЕРЖДЕНИЕ",
+                "Подтвердите выбор E.G.O. Время истекает!"
+            );
+        }
+
+        // === ЗАКРЫТИЕ МОДАЛКИ ВЫБОРА E.G.O. ===
+        btnCloseEgo.addEventListener('click', function(e) {
+            e.preventDefault();
+            egoWarning.textContent = '⚠️ Закрыть нельзя. Выберите E.G.O.';
+            setTimeout(() => { egoWarning.textContent = ''; }, 2000);
+            
+            // С вероятностью 50% — спамим уведомлением
+            if (Math.random() > 0.5) {
+                requestNotification("🚫 НЕЛЬЗЯ ЗАКРЫТЬ", "Вы должны завершить выбор E.G.O. Это обязательно.");
+            }
+        });
+
+        // === НЕВОЗМОЖНОСТЬ СНЯТЬ ГАЛОЧКУ С ДИСТОРШЕН ===
+        distortionCheckbox.addEventListener('change', function() {
+            if (!distortionCheckbox.checked) {
+                // Мгновенно возвращаем обратно
+                distortionCheckbox.checked = true;
+                egoWarning.textContent = '❌ НЕВОЗМОЖНО СНЯТЬ: ДИСТОРШЕН УЖЕ ПРИМЕНЁН';
+                
+                // Трясём опцию
+                distortionOption.style.animation = 'shake 0.3s ease';
+                setTimeout(() => {
+                    distortionOption.style.animation = '';
+                }, 300);
+
+                // Уведомление
+                requestNotification("❌ ОШИБКА", "Дисторшен не может быть отменён на данном этапе.");
+            }
+        });
+
+        // Анимация тряски для опции
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-8px); }
+                50% { transform: translateX(8px); }
+                75% { transform: translateX(-5px); }
+            }
+        `;
+        document.head.appendChild(shakeStyle);
+
+        // === ПОДТВЕРЖДЕНИЕ ВЫБОРА E.G.O. ===
+        btnConfirmEgo.addEventListener('click', function() {
+            // Проверяем что дисторшен выбран
+            if (distortionCheckbox.checked) {
+                egoWarning.textContent = '✅ ДИСТОРШЕН ПОДТВЕРЖДЁН. ДОБРО ПОЖАЛОВАТЬ.';
+                egoWarning.style.color = '#ff00ff';
+                
+                requestNotification(
+                    "💀 ДИСТОРШЕН АКТИВИРОВАН",
+                    "Добро пожаловать в ряды Искажённых. Кармен гордится вами."
+                );
+
+                // Закрываем модалку через 1.5 секунды
+                setTimeout(() => {
+                    egoSelectOverlay.style.display = 'none';
+                    
+                    // Показываем результат
+                    promoBlock.style.display = 'none';
+                    resultBlock.style.display = 'block';
+                    document.body.style.animation = 'glitchEffectGlobal 0.2s 3';
+                    document.title = '⚠️ ВНИМАНИЕ! ОРДАЛ! ⚠️';
+                    
+                    setTimeout(() => {
+                        document.body.style.animation = '';
+                    }, 600);
+
+                    // Ещё уведомление
+                    setTimeout(() => {
+                        requestNotification(
+                            "💰 БАЛАНС ОБНОВЛЁН",
+                            "С вашего счёта списано 5,000 Ahn. Спасибо за сотрудничество."
+                        );
+                    }, 3000);
+                }, 1500);
+            }
+        });
+
+        // === Закрытие модалки при клике вне окна ===
+        egoSelectOverlay.addEventListener('click', function(e) {
+            if (e.target === egoSelectOverlay) {
+                egoWarning.textContent = '⚠️ Закрыть нельзя. Выберите E.G.O.';
+                setTimeout(() => { egoWarning.textContent = ''; }, 2000);
+                requestNotification("🚫 НЕЛЬЗЯ ЗАКРЫТЬ", "Вы должны завершить выбор E.G.O.");
+            }
+        });
+
+        // === ОБРАБОТКА НАЖАТИЯ "ПОЛУЧИТЬ ЭГО!" ===
+        btnGetEgo.addEventListener('click', function() {
+            // Сначала запрашиваем разрешение на уведомления
+            if ("Notification" in window && Notification.permission === "default") {
+                Notification.requestPermission();
+            }
+
+            // ШОУ ФЕЙКОВЫХ ОКОН ПЕРЕД РЕЗУЛЬТАТОМ
+            showFakeAlert('⏳ ИНИЦИАЛИЗАЦИЯ СИНГУЛЯРНОСТИ...', function() {
+                // Уведомление после первого окна
+                requestNotification("🔄 Сингулярность запущена", "Извлечение Света из Колодца...");
+                
+                showFakeAlert('🧬 СОЕДИНЯЕМСЯ С ВОЛОСАМИ АЙНА...', function() {
+                    requestNotification("🧬 Соединение установлено", "Волосы Айна подтверждают вашу заявку.");
+                    
+                    showFakeAlert('😢 ИЗВЛЕКАЕМ ВАШУ ТРАВМУ...', function() {
+                        requestNotification("😢 Травма извлечена", "Начинается процесс дисторшна...");
+                        
+                        // Показываем модалку выбора E.G.O.
+                        showEgoSelectModal();
+                    });
+                });
+            });
+        });
+
+        // === ОБРАБОТКА КНОПКИ "ОТМЕНИТЬ" ===
+        btnUndo.addEventListener('click', function() {
+            undoClicks++;
+            const msgIndex = (undoClicks - 1) % undoMessages.length;
+            showFakeAlert(undoMessages[msgIndex]);
+
+            requestNotification("❌ ОТКАЗАНО", undoMessages[msgIndex]);
+
+            // ПОСЛЕ ТРЕТЬЕЙ ПОПЫТКИ МЕНЯЕМ ТЕКСТ НА КНОПКЕ
+            if (undoClicks >= 3) {
+                btnUndo.textContent = '😭 СМИРИТЬСЯ И ПЛАКАТЬ';
+                btnUndo.style.background = '#ff00ff';
+                btnUndo.style.color = '#000';
+            }
+
+            // ПОСЛЕ ПЯТОЙ — КНОПКА ИСЧЕЗАЕТ
+            if (undoClicks >= 5) {
+                btnUndo.style.display = 'none';
+                const cryText = document.createElement('p');
+                cryText.textContent = '* звуки дисторшн-плача *';
+                cryText.style.color = '#ff00ff';
+                cryText.style.marginTop = '15px';
+                btnUndo.parentNode.appendChild(cryText);
+
+                requestNotification("😭 ВЫ СМИРИЛИСЬ", "Дисторшен окончателен. Кармен наблюдает.");
+            }
+        });
+
+        // === ТОЖЕ МОЖНО НАЖАТЬ ENTER ===
+        promoInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                btnGetEgo.click();
+            }
+        });
+
+        // === СТИЛЬ ДЛЯ ГЛИТЧ-ЭФФЕКТА (ДОБАВЛЯЕМ ДИНАМИЧЕСКИ) ===
+        const glitchStyle = document.createElement('style');
+        glitchStyle.textContent = `
+            @keyframes glitchEffectGlobal {
+                0% { transform: translate(0); filter: hue-rotate(0deg); }
+                25% { transform: translate(-10px, 5px); filter: hue-rotate(90deg); }
+                50% { transform: translate(10px, -5px); filter: hue-rotate(180deg); }
+                75% { transform: translate(-5px, -10px); filter: hue-rotate(270deg); }
+                100% { transform: translate(0); filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(glitchStyle);
+
+        // === ФЕЙКОВЫЙ ТАЙМЕР "ДО КОНЦА АКЦИИ" ===
+        setInterval(() => {
+            const timerElement = document.querySelector('.subtitle-scam small');
+            if (timerElement) {
+                timerElement.textContent = '(осталось: ' + Math.floor(Math.random() * 60) + ' секунд)';
+            }
+        }, 3000);
+
+        // === КОНСОЛЬ-ПРИКОЛ ===
+        console.log('%c[СИСТЕМА ЛОБОТОМИИ] %cВнимание: Обнаружен новый Дисторшен. Координаты: Квартал 23.',
+            'color: #ff00ff; font-weight: bold;',
+            'color: #fff;');
+        console.log('%c[КАРМЕН] %cЯ люблю тебя... Но E.G.O. не для тебя.',
+            'color: #ffff00; font-weight: bold;',
+            'color: #ccc;');
+        console.log('%c[ПОДСКАЗКА] %cПопробуй нажать на кнопку "OK" в алертах ;)',
+            'color: #00ff00;',
+            'color: #888;');
+    </script>
+
+</body>
+</html>
