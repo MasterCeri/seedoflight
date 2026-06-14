@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEEDOFLIGHT.com | Бесплатное E.G.O. от Кармен (ОФИЦИАЛЬНО)</title>
     <style>
-        /* === СБРОС И БАЗА === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
@@ -17,7 +16,6 @@
             position: relative;
         }
 
-        /* === ФОН С "КРУТЫМИ" ГИФКАМИ === */
         .bg-pattern {
             position: fixed;
             top: 0; left: 0;
@@ -38,7 +36,6 @@
             100% { background-position: 100px 100px; }
         }
 
-        /* === БЕГУЩАЯ СТРОКА (ОГОНЬ!) === */
         .marquee-container {
             width: 100%;
             background: #ff00ff;
@@ -64,7 +61,6 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* === ОСНОВНОЙ КОНТЕЙНЕР === */
         .main-wrapper {
             max-width: 900px;
             margin: 0 auto;
@@ -73,7 +69,6 @@
             z-index: 1;
         }
 
-        /* === ЗАГОЛОВКИ (КИСЛОТА!) === */
         .title-glow {
             font-size: 2.8em;
             text-align: center;
@@ -101,7 +96,6 @@
             transform: rotate(-1deg);
         }
 
-        /* === КАРТОЧКИ "ОТЗЫВОВ" === */
         .testimonials {
             display: flex;
             flex-wrap: wrap;
@@ -146,7 +140,6 @@
             font-style: italic;
         }
 
-        /* === БЛОК ВВОДА ПРОМОКОДА === */
         .promo-block {
             background: #000;
             border: 5px solid #ff00ff;
@@ -211,7 +204,6 @@
             50% { box-shadow: 0 0 40px #ffff00, 0 0 60px #ff00ff; }
         }
 
-        /* === СКРЫТЫЙ БЛОК РЕЗУЛЬТАТА === */
         .result-block {
             display: none;
             background: #0a000a;
@@ -257,7 +249,6 @@
             font-weight: bold;
         }
 
-        /* === МАЛЕНЬКАЯ КНОПКА-ПРИКОЛ === */
         .btn-undo {
             background: #333;
             color: #888;
@@ -274,7 +265,6 @@
             color: #fff;
         }
 
-        /* === ВСПЛЫВАЮЩИЕ ОКНА (РЕАЛЬНЫЕ!!) === */
         .fake-alert-overlay {
             display: none;
             position: fixed;
@@ -312,7 +302,6 @@
             transition: 0.05s ease-out;
         }
 
-        /* === МОДАЛЬНОЕ ОКНО ВЫБОРА E.G.O. === */
         .ego-select-overlay {
             display: none;
             position: fixed;
@@ -417,7 +406,6 @@
             min-height: 20px;
         }
 
-        /* === АДАПТИВКА === */
         @media (max-width: 600px) {
             .title-glow { font-size: 1.8em; }
             .btn-ego { font-size: 1.3em; padding: 10px 25px; }
@@ -427,27 +415,22 @@
 </head>
 <body>
 
-    <!-- ФОНЧИК -->
     <div class="bg-pattern"></div>
 
-    <!-- БЕГУЩАЯ СТРОКА (ШОК-КОНТЕНТ) -->
     <div class="marquee-container">
         <div class="marquee-text">
             🚨 АЙН В ШОКЕ!!! 🚨 | КОГТИ НЕНАВИДЯТ ЭТОТ МЕТОД | КАРМЕН РАЗДАЁТ E.G.O. БЕСПЛАТНО | ЖМИ ПРОМОКОД!!! 🚨
         </div>
     </div>
 
-    <!-- ГЛАВНЫЙ КОНТЕЙНЕР -->
     <div class="main-wrapper">
 
-        <!-- ЗАГОЛОВОК МЕЧТЫ -->
         <h1 class="title-glow">💎 SEEDOFLIGHT.com 💎</h1>
         <div class="subtitle-scam">
             ⚡ ОФИЦИАЛЬНЫЙ ПАРТНЁР LOBOTOMY CORPORATION ⚡<br>
             <small>(нет, но Кармен сказала можно)</small>
         </div>
 
-        <!-- ФЕЙКОВЫЕ ОТЗЫВЫ -->
         <div class="testimonials">
             <div class="testimonial-card">
                 <div class="testimonial-avatar">🐺</div>
@@ -472,7 +455,6 @@
             </div>
         </div>
 
-        <!-- БЛОК ВВОДА ПРОМОКОДА -->
         <div class="promo-block" id="promoBlock">
             <h2 style="color: #ffff00; margin-bottom: 15px;">
                 🎁 ВВЕДИ ПРОМОКОД НА БЕСПЛАТНОЕ E.G.O. 🎁
@@ -493,7 +475,6 @@
             </p>
         </div>
 
-        <!-- РЕЗУЛЬТАТ (ИЗНАЧАЛЬНО СКРЫТ) -->
         <div class="result-block" id="resultBlock">
             <h2 class="distortion-title">🔥 ПОЗДРАВЛЯЕМ! 🔥</h2>
             <div class="status-box">
@@ -525,7 +506,6 @@
 
     </div>
 
-    <!-- ФЕЙКОВЫЕ ВСПЛЫВАЮЩИЕ ОКНА -->
     <div class="fake-alert-overlay" id="fakeAlertOverlay">
         <div class="fake-alert-box" id="fakeAlertBox">
             <p id="fakeAlertText">ОШИБКА: Сингулярность недоступна!</p>
@@ -533,7 +513,6 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ВЫБОРА E.G.O. -->
     <div class="ego-select-overlay" id="egoSelectOverlay">
         <div class="ego-select-box">
             <h2>🎁 ВЫБЕРИТЕ ВАШЕ E.G.O. 🎁</h2>
@@ -566,7 +545,6 @@
     </div>
 
     <script>
-        // === ЭЛЕМЕНТЫ ===
         const promoInput = document.getElementById('promoInput');
         const btnGetEgo = document.getElementById('btnGetEgo');
         const resultBlock = document.getElementById('resultBlock');
@@ -576,8 +554,6 @@
         const fakeAlertText = document.getElementById('fakeAlertText');
         const fakeAlertBtn = document.getElementById('fakeAlertBtn');
         const fakeAlertBox = document.getElementById('fakeAlertBox');
-
-        // Элементы модалки выбора E.G.O.
         const egoSelectOverlay = document.getElementById('egoSelectOverlay');
         const distortionCheckbox = document.getElementById('distortionCheckbox');
         const btnConfirmEgo = document.getElementById('btnConfirmEgo');
@@ -585,7 +561,6 @@
         const btnCloseEgo = document.getElementById('btnCloseEgo');
         const distortionOption = document.getElementById('distortionOption');
 
-        // === СЧЁТЧИК ПОПЫТОК "ОТМЕНИТЬ" ===
         let undoClicks = 0;
         const undoMessages = [
             "ДИСТОРШЕН НЕ ОТМЕНЯЕТСЯ.",
@@ -594,10 +569,8 @@
             "ПОЗДНО."
         ];
 
-        // === ФЛАГ ДЛЯ ОТКЛЮЧЕНИЯ УБЕГАНИЯ КНОПКИ ===
         let alertButtonEscapes = true;
 
-        // === ФУНКЦИЯ УБЕГАНИЯ КНОПКИ ===
         function makeButtonEscape(button, container) {
             button.addEventListener('mouseover', function(e) {
                 if (!alertButtonEscapes) return;
@@ -605,37 +578,31 @@
                 const containerRect = container.getBoundingClientRect();
                 const btnRect = button.getBoundingClientRect();
 
-                // Максимальные границы внутри контейнера
                 const maxX = containerRect.width - btnRect.width - 20;
                 const maxY = containerRect.height - btnRect.height - 20;
 
-                // Случайное смещение (но не вылетаем за пределы контейнера)
                 let newLeft = Math.random() * maxX;
                 let newTop = Math.random() * maxY;
 
-                // Гарантируем что кнопка не вылезает
                 newLeft = Math.max(10, Math.min(newLeft, maxX));
-                newTop = Math.max(50, Math.min(newTop, maxY)); // 50 — отступ под текст
+                newTop = Math.max(50, Math.min(newTop, maxY));
 
                 button.style.position = 'relative';
                 button.style.left = newLeft + 'px';
                 button.style.top = newTop + 'px';
             });
 
-            // При клике — временно останавливаем убегание
             button.addEventListener('click', function() {
                 alertButtonEscapes = false;
                 button.style.position = 'static';
             });
         }
 
-        // Применяем убегание к кнопке алерта
         makeButtonEscape(fakeAlertBtn, fakeAlertBox);
 
-        // === ФУНКЦИЯ ПОКАЗАТЬ ФЕЙКОВОЕ ОКНО ===
         function showFakeAlert(message, callback) {
             alertButtonEscapes = true;
-            fakeAlertBtn.style.position = 'static'; // Сброс позиции
+            fakeAlertBtn.style.position = 'static';
             fakeAlertBtn.style.left = '0';
             fakeAlertBtn.style.top = '0';
             
@@ -648,7 +615,6 @@
             };
         }
 
-        // === ФУНКЦИЯ ЗАПРОСА УВЕДОМЛЕНИЙ БРАУЗЕРА ===
         function requestNotification(title, body) {
             if (!("Notification" in window)) return;
 
@@ -663,50 +629,41 @@
             }
         }
 
-        // === ПОКАЗ МОДАЛЬНОГО ОКНА ВЫБОРА E.G.O. ===
         function showEgoSelectModal() {
             distortionCheckbox.checked = true;
             egoWarning.textContent = '';
             egoSelectOverlay.style.display = 'flex';
 
-            // Попытка запросить уведомление
             requestNotification(
                 "⚠️ SEED OF LIGHT — ТРЕБУЕТСЯ ПОДТВЕРЖДЕНИЕ",
                 "Подтвердите выбор E.G.O. Время истекает!"
             );
         }
 
-        // === ЗАКРЫТИЕ МОДАЛКИ ВЫБОРА E.G.O. ===
         btnCloseEgo.addEventListener('click', function(e) {
             e.preventDefault();
             egoWarning.textContent = '⚠️ Закрыть нельзя. Выберите E.G.O.';
             setTimeout(() => { egoWarning.textContent = ''; }, 2000);
             
-            // С вероятностью 50% — спамим уведомлением
             if (Math.random() > 0.5) {
                 requestNotification("🚫 НЕЛЬЗЯ ЗАКРЫТЬ", "Вы должны завершить выбор E.G.O. Это обязательно.");
             }
         });
 
-        // === НЕВОЗМОЖНОСТЬ СНЯТЬ ГАЛОЧКУ С ДИСТОРШЕН ===
         distortionCheckbox.addEventListener('change', function() {
             if (!distortionCheckbox.checked) {
-                // Мгновенно возвращаем обратно
                 distortionCheckbox.checked = true;
                 egoWarning.textContent = '❌ НЕВОЗМОЖНО СНЯТЬ: ДИСТОРШЕН УЖЕ ПРИМЕНЁН';
                 
-                // Трясём опцию
                 distortionOption.style.animation = 'shake 0.3s ease';
                 setTimeout(() => {
                     distortionOption.style.animation = '';
                 }, 300);
 
-                // Уведомление
                 requestNotification("❌ ОШИБКА", "Дисторшен не может быть отменён на данном этапе.");
             }
         });
 
-        // Анимация тряски для опции
         const shakeStyle = document.createElement('style');
         shakeStyle.textContent = `
             @keyframes shake {
@@ -718,9 +675,7 @@
         `;
         document.head.appendChild(shakeStyle);
 
-        // === ПОДТВЕРЖДЕНИЕ ВЫБОРА E.G.O. ===
         btnConfirmEgo.addEventListener('click', function() {
-            // Проверяем что дисторшен выбран
             if (distortionCheckbox.checked) {
                 egoWarning.textContent = '✅ ДИСТОРШЕН ПОДТВЕРЖДЁН. ДОБРО ПОЖАЛОВАТЬ.';
                 egoWarning.style.color = '#ff00ff';
@@ -730,11 +685,8 @@
                     "Добро пожаловать в ряды Искажённых. Кармен гордится вами."
                 );
 
-                // Закрываем модалку через 1.5 секунды
                 setTimeout(() => {
                     egoSelectOverlay.style.display = 'none';
-                    
-                    // Показываем результат
                     promoBlock.style.display = 'none';
                     resultBlock.style.display = 'block';
                     document.body.style.animation = 'glitchEffectGlobal 0.2s 3';
@@ -744,7 +696,6 @@
                         document.body.style.animation = '';
                     }, 600);
 
-                    // Ещё уведомление
                     setTimeout(() => {
                         requestNotification(
                             "💰 БАЛАНС ОБНОВЛЁН",
@@ -755,7 +706,6 @@
             }
         });
 
-        // === Закрытие модалки при клике вне окна ===
         egoSelectOverlay.addEventListener('click', function(e) {
             if (e.target === egoSelectOverlay) {
                 egoWarning.textContent = '⚠️ Закрыть нельзя. Выберите E.G.O.';
@@ -764,16 +714,12 @@
             }
         });
 
-        // === ОБРАБОТКА НАЖАТИЯ "ПОЛУЧИТЬ ЭГО!" ===
         btnGetEgo.addEventListener('click', function() {
-            // Сначала запрашиваем разрешение на уведомления
             if ("Notification" in window && Notification.permission === "default") {
                 Notification.requestPermission();
             }
 
-            // ШОУ ФЕЙКОВЫХ ОКОН ПЕРЕД РЕЗУЛЬТАТОМ
             showFakeAlert('⏳ ИНИЦИАЛИЗАЦИЯ СИНГУЛЯРНОСТИ...', function() {
-                // Уведомление после первого окна
                 requestNotification("🔄 Сингулярность запущена", "Извлечение Света из Колодца...");
                 
                 showFakeAlert('🧬 СОЕДИНЯЕМСЯ С ВОЛОСАМИ АЙНА...', function() {
@@ -781,15 +727,12 @@
                     
                     showFakeAlert('😢 ИЗВЛЕКАЕМ ВАШУ ТРАВМУ...', function() {
                         requestNotification("😢 Травма извлечена", "Начинается процесс дисторшна...");
-                        
-                        // Показываем модалку выбора E.G.O.
                         showEgoSelectModal();
                     });
                 });
             });
         });
 
-        // === ОБРАБОТКА КНОПКИ "ОТМЕНИТЬ" ===
         btnUndo.addEventListener('click', function() {
             undoClicks++;
             const msgIndex = (undoClicks - 1) % undoMessages.length;
@@ -797,14 +740,12 @@
 
             requestNotification("❌ ОТКАЗАНО", undoMessages[msgIndex]);
 
-            // ПОСЛЕ ТРЕТЬЕЙ ПОПЫТКИ МЕНЯЕМ ТЕКСТ НА КНОПКЕ
             if (undoClicks >= 3) {
                 btnUndo.textContent = '😭 СМИРИТЬСЯ И ПЛАКАТЬ';
                 btnUndo.style.background = '#ff00ff';
                 btnUndo.style.color = '#000';
             }
 
-            // ПОСЛЕ ПЯТОЙ — КНОПКА ИСЧЕЗАЕТ
             if (undoClicks >= 5) {
                 btnUndo.style.display = 'none';
                 const cryText = document.createElement('p');
@@ -817,14 +758,12 @@
             }
         });
 
-        // === ТОЖЕ МОЖНО НАЖАТЬ ENTER ===
         promoInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 btnGetEgo.click();
             }
         });
 
-        // === СТИЛЬ ДЛЯ ГЛИТЧ-ЭФФЕКТА (ДОБАВЛЯЕМ ДИНАМИЧЕСКИ) ===
         const glitchStyle = document.createElement('style');
         glitchStyle.textContent = `
             @keyframes glitchEffectGlobal {
@@ -837,7 +776,6 @@
         `;
         document.head.appendChild(glitchStyle);
 
-        // === ФЕЙКОВЫЙ ТАЙМЕР "ДО КОНЦА АКЦИИ" ===
         setInterval(() => {
             const timerElement = document.querySelector('.subtitle-scam small');
             if (timerElement) {
@@ -845,16 +783,12 @@
             }
         }, 3000);
 
-        // === КОНСОЛЬ-ПРИКОЛ ===
         console.log('%c[СИСТЕМА ЛОБОТОМИИ] %cВнимание: Обнаружен новый Дисторшен. Координаты: Квартал 23.',
             'color: #ff00ff; font-weight: bold;',
             'color: #fff;');
         console.log('%c[КАРМЕН] %cЯ люблю тебя... Но E.G.O. не для тебя.',
             'color: #ffff00; font-weight: bold;',
             'color: #ccc;');
-        console.log('%c[ПОДСКАЗКА] %cПопробуй нажать на кнопку "OK" в алертах ;)',
-            'color: #00ff00;',
-            'color: #888;');
     </script>
 
 </body>
